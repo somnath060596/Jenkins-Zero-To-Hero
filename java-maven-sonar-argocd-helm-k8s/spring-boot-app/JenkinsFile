@@ -57,7 +57,7 @@ pipeline {
                     git config --global user.name "somnath060596"
                     git config --global --add safe.directory /var/lib/jenkins/workspace/first-pipeline
                     BUILD_NUMBER=${BUILD_NUMBER}
-                    sed -i -E "s|image: somnath060596/ultimate-cicd:.*|image: somnath060596/ultimate-cicd:${BUILD_NUMBER}|" java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
+                    sed -i -E "s|image: abhishekf5/ultimate-cicd:.*|image: somnath060596/ultimate-cicd:${BUILD_NUMBER}|" java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
                     git add java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
                     git push https://${github}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
